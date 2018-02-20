@@ -73,26 +73,31 @@ def drawFront(x, y, width, height, thickness, notch_width, lines):
                                              y,
                                              width,
                                              notch_width,
-                                             thickness),
+                                             thickness,
+                                             True ),
                                              lines)
                                              
      drawNotchedLine(genVerticalLinePoints(width,
                                            height,
                                            -height,
                                            notch_width,
-                                           thickness),
+                                           thickness,
+                                           True ),
                                            lines)
+                                           
      drawNotchedLine(genHorizontalLinePoints(width,
                                              height,
                                              -width,
                                              notch_width,
-                                             thickness),
+                                             thickness, 
+                                             True),
                                              lines)
      drawNotchedLine(genVerticalLinePoints(x,
                                            y,
                                            height,
                                            notch_width,
-                                           thickness),
+                                           thickness, 
+                                           True),
                                            lines)
 
     
@@ -100,139 +105,168 @@ def drawLeft(x, y, width, height, depth, thickness, notch_width, lines):
     
     drawNotchedLine(genHorizontalLinePoints((width + thickness) + OFFSET,
                                             0,
-                                            (depth - thickness),
+                                            (depth),
                                             notch_width,
-                                            thickness),
+                                            thickness, 
+                                            False),
                                             lines)
                                             
     drawNotchedLine(genVerticalLinePoints(width + thickness + (depth - thickness) + OFFSET,
                                           0,
-                                          (height - thickness),
+                                          (height),
                                           notch_width, 
-                                          thickness), 
+                                          thickness, 
+                                          False), 
                                           lines)
                                           
     drawNotchedLine(genHorizontalLinePoints(width + thickness + (depth - thickness) + OFFSET,
                                            (height - thickness), 
-                                           -(depth - thickness), 
+                                           -(depth), 
                                            notch_width, 
-                                           thickness), 
+                                           thickness, 
+                                           False), 
                                            lines)
                                            
     drawNotchedLine(genVerticalLinePoints((width + thickness) + OFFSET ,
                                           (height - thickness), 
-                                          -(height - thickness), 
+                                          -(height), 
                                           notch_width, 
-                                          thickness), 
+                                          thickness, 
+                                          False), 
                                           lines)
   
 def drawTop(x, y, width, depth, thickness, notch_width, lines):
     drawNotchedLine(genHorizontalLinePoints(width + depth + width + thickness + (2 * OFFSET),
                                             0,
-                                            -(width - thickness),
+                                            -(width ),
                                             notch_width,
-                                            thickness),
+                                            thickness, 
+                                            False),
                                             lines)
                                             
     drawNotchedLine(genVerticalLinePoints(width + depth +  width + thickness + (2 * OFFSET),
                                           0,
-                                          (depth - thickness),
+                                          (depth),
                                           notch_width,
-                                          thickness),
+                                          thickness, 
+                                          False),
                                           lines)
                                           
     drawNotchedLine(genHorizontalLinePoints(width + depth + thickness + thickness + (2 *  OFFSET),
-                                            depth - thickness, (width - thickness),
-                                            notch_width, thickness),
+                                            depth - thickness,
+                                            width,
+                                            notch_width, 
+                                            thickness,
+                                            False),
                                             lines)
                                             
     drawNotchedLine(genVerticalLinePoints(width + depth + thickness + thickness + (2 * OFFSET),
                                           depth - thickness,
-                                          -(depth - thickness),
+                                          -depth,
                                           notch_width,
-                                          thickness),
+                                          thickness,
+                                          False),
                                           lines)
 
     
 def drawBack(x, y, width,  height, thickness, notch_width, lines ):
-    drawNotchedLine(genHorizontalLinePoints(x ,height + thickness,
-                                            width, notch_width,
-                                            thickness),
+    drawNotchedLine(genHorizontalLinePoints(x ,
+                                            height + thickness,
+                                            width,
+                                            notch_width,
+                                            thickness,
+                                            True),
                                             lines)
                                             
     drawNotchedLine(genVerticalLinePoints(width,
                                           height + height + thickness,
-                                          -height, notch_width,
-                                          thickness),
+                                          -height,
+                                          notch_width,
+                                          thickness,
+                                          True),
                                           lines)
                                           
     drawNotchedLine(genHorizontalLinePoints(width,
                                             height + height + thickness,
                                             -width,
                                             notch_width,
-                                            thickness),
+                                            thickness,
+                                            True),
                                             lines)
                                             
     drawNotchedLine(genVerticalLinePoints(x,
                                           height + thickness,
                                           height,
                                           notch_width,
-                                          thickness),
+                                          thickness,
+                                          True),
                                           lines)
 
 
 def drawRight(x, y, width, height, depth, thickness, notch_width, lines):
     drawNotchedLine(genHorizontalLinePoints(width + thickness + OFFSET,
                                             height + thickness,
-                                            (depth - thickness),
-                                            notch_width, thickness),
+                                            depth,
+                                            notch_width, 
+                                            thickness,
+                                            False),
                                             lines)
                                             
     drawNotchedLine(genVerticalLinePoints(width + thickness + (depth - thickness) + OFFSET,
                                           height + thickness,
-                                          (height - thickness),
+                                          height,
                                           notch_width,
-                                          thickness),
+                                          thickness,
+                                          False),
                                           lines)
                                           
     drawNotchedLine(genHorizontalLinePoints(width + thickness + (depth - thickness)  + OFFSET,
                                             height + height,
-                                            -(depth - thickness),
-                                            notch_width, thickness),
+                                            -depth,
+                                            notch_width, 
+                                            thickness,
+                                            False),
                                             lines)
                                             
     drawNotchedLine(genVerticalLinePoints(width + thickness + OFFSET,
                                           height + height,
-                                          -(height - thickness ),
+                                          -height,
                                           notch_width,
-                                          thickness),
+                                          thickness,
+                                          False),
                                           lines)
 
 def drawBottom(x, y, width, depth, thickness, notch_width, lines ):
     drawNotchedLine(genHorizontalLinePoints(width + depth + width + thickness + (2 * OFFSET),
                                             depth + thickness + OFFSET,
-                                            -(width - thickness),
-                                            notch_width, thickness),
+                                            -width ,
+                                            notch_width, 
+                                            thickness,
+                                            False),
                                             lines)
                                             
     drawNotchedLine(genVerticalLinePoints(width  + depth + width + thickness + (2 * OFFSET),
                                           depth + thickness + OFFSET,
-                                          (depth - thickness),
+                                          depth ,
                                           notch_width,
-                                          thickness),
+                                          thickness,
+                                          False),
                                           lines)
                                           
     drawNotchedLine(genHorizontalLinePoints(width + thickness + depth + thickness + (2 * OFFSET),
                                             (depth + thickness) +(depth - thickness) + OFFSET,
-                                            (width - thickness),
+                                            width ,
                                             notch_width,
-                                            thickness),                                    
+                                            thickness,
+                                            False),                                    
                                             lines)
                                             
     drawNotchedLine(genVerticalLinePoints(width  + depth + thickness + thickness  + (2 * OFFSET),
                                           (depth + thickness) +(depth - thickness) + OFFSET,
-                                          -(depth - thickness), notch_width,
-                                           thickness),
+                                          -depth, 
+                                          notch_width,
+                                          thickness,
+                                          False),
                                            lines)
         
 
@@ -240,9 +274,9 @@ def drawBottom(x, y, width, depth, thickness, notch_width, lines ):
 
 
 
-def genHorizontalLinePoints(x_origin, y_origin, length, notch_width, thickness):
+def genHorizontalLinePoints(x_origin, y_origin, length, notch_width, thickness,FullLength):
     
-    
+    print("length = ", length)
     # The minimum number of notches    
     notch_count = 5
     
@@ -250,6 +284,17 @@ def genHorizontalLinePoints(x_origin, y_origin, length, notch_width, thickness):
     end_notch_width = notch_width
     
     
+    
+    
+    if(not FullLength):
+        
+        if (length < 0):
+            
+            length = length + thickness
+        else:
+            length = length - thickness
+    
+        
     remaining_length = abs(length) - abs(notch_width)
     remaining_length = remaining_length - (4 * notch_width)
     
@@ -316,9 +361,9 @@ def genHorizontalLinePoints(x_origin, y_origin, length, notch_width, thickness):
     
     return notch_points
      
-def genVerticalLinePoints(x_origin, y_origin, length, notch_width, thickness):  
+def genVerticalLinePoints(x_origin, y_origin, length, notch_width, thickness,FullLength):  
     
-    points = genHorizontalLinePoints(y_origin,x_origin, length, notch_width, thickness)
+    points = genHorizontalLinePoints(y_origin,x_origin, length, notch_width, thickness,FullLength)
     
     position = 0    
     for i in points:
@@ -338,8 +383,6 @@ def drawNotchedLine(points, sketch):
     
     linePoints = points    
     lines = sketch
-    
-    
     
 
     point1 = linePoints.pop(0)
